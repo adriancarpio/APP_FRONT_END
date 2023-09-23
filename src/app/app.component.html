@@ -1,0 +1,85 @@
+<div class="example-container">
+  <mat-toolbar class="colorTolBar" autosize>
+    <button mat-icon-button (click)="sidenav.toggle()" mode="side">
+      <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+      <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+    </button>
+
+    <span class="example-spacer"></span>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>account_box</mat-icon>
+        <span>My account</span>
+      </button>
+      <button mat-menu-item (click)="sidenav.opened = false">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #sidenav mode="side">
+      <img src="assets/pngwing.com.png" width="128" style="margin-left: 20px" />
+
+      <mat-divider></mat-divider>
+      <button
+        class="myButton"
+        [routerLinkActive]="['active']"
+        mat-menu-item
+        (click)="sidenav.toggle()"
+        routerLink="/pages/siembra"
+        style="cursor: pointer"
+      >
+        <mat-icon>grass</mat-icon>
+        <span>Siembra</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button
+        class="myButton"
+        [routerLinkActive]="['active']"
+        mat-menu-item
+        (click)="sidenav.toggle()"
+        routerLink="/pages/cosecha"
+        style="cursor: pointer"
+      >
+        <mat-icon>electric_moped</mat-icon>
+        <span>Cosecha</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button
+        class="myButton"
+        [routerLinkActive]="['active']"
+        mat-menu-item
+        (click)="sidenav.toggle()"
+        routerLink="/pages/venta"
+        style="cursor: pointer"
+      >
+        <mat-icon>add_shopping_cart</mat-icon>
+        <span>Ventas</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button
+      class="myButton"
+      [routerLinkActive]="['active']"
+      mat-menu-item
+      (click)="sidenav.toggle()"
+      routerLink="/pages/prediccion"
+      style="cursor: pointer"
+    >
+      <mat-icon>trending_up</mat-icon>
+      <span>Predicción</span>
+    </button>
+    <mat-divider></mat-divider>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <img mat-card-image src="/assets/dashboard.png" alt="Photo of a Shiba Inu">
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
